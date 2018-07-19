@@ -3,14 +3,23 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+        "gulp": "^3.9.0",
+        "gulp-imagemin": "^2.3.0"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "gulp": "gulp"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ediCarlosSilva/lerningGulp.git"
+    },
     "author": "",
     "license": "ISC",
-    "devDependencies": {
-        "gulp": "^3.9.0",
-        "gulp-imagemin": "^2.3.0"
-    }
+    "bugs": {
+        "url": "https://github.com/ediCarlosSilva/lerningGulp/issues"
+    },
+    "homepage": "https://github.com/ediCarlosSilva/lerningGulp#readme"
 }
