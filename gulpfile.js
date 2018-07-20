@@ -4,6 +4,10 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     htmlReplace = require('gulp-html-replace');
 
+gulp.task('default', ['copy'], function() {
+
+})
+
 gulp.task('copy', ['clean'], function() {
 
     return gulp.src('src/**/*')
