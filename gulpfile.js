@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     usemin = require('gulp-usemin');
 
 gulp.task('default', ['copy'], function() {
-    gulp.start('build-img', 'build-html', 'build-js');
+    gulp.start('build-img', 'usemin');
 })
 
 gulp.task('copy', ['clean'], function() {
