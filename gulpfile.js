@@ -35,6 +35,7 @@ gulp.task('build-js', function() {
             'dist/js/produto.js'
         ])
         .pipe(concat('all.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('dist/js'));
 });
 
