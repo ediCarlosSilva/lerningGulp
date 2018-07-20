@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     htmlReplace = require('gulp-html-replace');
 
 gulp.task('default', ['copy'], function() {
-
+    gulp.start('build-img', 'build-html', 'build-js');
 })
 
 gulp.task('copy', ['clean'], function() {
