@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
-    htmlReplace = require('gulp-html-replace');
+    htmlReplace = require('gulp-html-replace'),
+    uglify = require('gulp-uglify');
 
 gulp.task('default', ['copy'], function() {
     gulp.start('build-img', 'build-html', 'build-js');
