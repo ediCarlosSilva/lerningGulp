@@ -1,6 +1,8 @@
 var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
-    clean = require('gulp-clean');
+    clean = require('gulp-clean'),
+    concat = require('gulp-concat'),
+    htmlReplace = require('gulp-html-replace');
 
 gulp.task('copy', ['clean'], function() {
 
@@ -19,4 +21,18 @@ gulp.task('build-img', ['copy'], function() {
     gulp.src('dist/img/**/*')
         .pipe(imagemin())
         .pipe(gulp.dest('dist/img'));
+});
+
+gulp.task('build-js', function() {
+    gulp.src('dist/js/**/*')
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('build-html', function() {
+    gulp.src('dist/**/*.html')
+        .pipe(htmlReplace({
+            'js': 'js/all.js'
+        }))
+        .pipe(gulp.dest('dist/'))
 });
