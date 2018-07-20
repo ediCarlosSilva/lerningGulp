@@ -20,7 +20,7 @@ gulp.task('clean', function() {
         .pipe(clean());
 })
 
-gulp.task('build-img', ['copy'], function() {
+gulp.task('build-img', function() {
 
     gulp.src('dist/img/**/*')
         .pipe(imagemin())
