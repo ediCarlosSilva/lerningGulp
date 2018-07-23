@@ -9,7 +9,9 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     jshint = require('gulp-jshint'),
     jshintStylish = require('jshint-stylish'),
-    csslint = require('gulp-csslint');
+    csslint = require('gulp-csslint'),
+    autoprefixer = require('gulp-autoprefixer'),
+    less = require('gulp-less');
 
 gulp.task('default', ['copy'], function() {
     gulp.start('build-img', 'usemin');
@@ -38,7 +40,9 @@ gulp.task('usemin', function() {
     gulp.src('dist/**/*.html')
         .pipe(usemin({
             js: [uglify],
-            css: [cssmin]
+            css: [autoprefixer({
+                browsers: ['last 5 versions']
+            }), cssmin]
         }))
         .pipe(gulp.dest('dist'))
 });
@@ -64,5 +68,14 @@ gulp.task('server', function() {
         gulp.src(event.path)
             .pipe(csslint())
             .pipe(csslint.reporter());
-    })
+    });
+
+    gulp.watch('src/less/**/*.less').on('change', function(event) {
+        gulp.src(event.path)
+            .pipe(less().on('error', function(erro) {
+                console.log('LESS, erro compilação: ' + erro.filename);
+                console.log(erro.message);
+            }))
+            .pipe(gulp.dest('src/css'));
+    });
 });
